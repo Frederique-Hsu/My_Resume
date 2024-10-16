@@ -1,0 +1,132 @@
+% File name		: 项目经验.tex
+% Description	: 该脚本放置“项目经验”这一小的CVSection
+% Author		: 徐赞
+% Date			: Sat.	12 Oct. 2024
+% 
+%
+
+
+\documentclass[./简历]{subfiles}
+
+
+\begin{document}
+    
+    \cvsection{\faPencilSquareO 项目经验}
+    
+    \projectsubsection{PoissonSoft Constraint Solver Engine 约束求解引擎}{泊松软件}
+    
+    \projectdetail{
+        \begin{tabular*}{1\linewidth}{@{}p{0.7\linewidth} @{}p{0.3\linewidth}}
+            \fbox{项目描述与工作职责：} 
+            \vspace{5pt}
+            
+            \faCaretRight\quad{}对标Siemens D-Cubed开发国产自主的CAD约束求解引擎
+            
+            \faCaretRight\quad{}设计与实现部分本地接口功能(C++17编写)如下，和云平台接口函数{\ttfamily{PSCSCloudAPI}}， 以及求解日志脚本回放功能。
+            
+            如{\ttfamily{PSCSApiSolver2DEngine::isLicenseValid}, 
+            \ttfamily{PSCSApiSolver2D::measureDimension}, \ttfamily{incrementalEvaluate}, 
+            \ttfamily{dragging}, \ttfamily{overConstraintAnalyze}}等很多相关接口。
+            
+            \faCaretRight\quad{}编码与实现：55\%， 测试与性能分析：15\%，编写Wiki与设计方案：20\%，缺陷修复：10\%
+            
+            \faCaretRight\quad{}开发可视化工具Sketcher和PSCAD.3DViewer(使用Qt Widgets, Qt3DRender)与框架framework.cad
+            
+            \faCaretRight\quad{}对比研究开源的OpenCascade在求解算法上的创新，比较OCCT、PSCS Engine和DCM在实现与求解上的差异。
+            
+            \faCaretRight\quad{}研究大规模Jacobian矩阵如何进行Eigen Vectorization向量化，结合OpenCL异构并行计算，
+            
+            在GPU上对Jacobian矩阵向量化，提高并行性。
+            
+            \faCaretRight\quad{}维护CMake脚本，自动化Build/Test/Pack/Deploy，使PSCS Engine可在Windows/Linux/macOS
+            
+            和HuaweiCloud上都能工作，同时兼容x86\_64 CPU与华为鲲鹏ARM CPU.
+            
+            &
+            
+            \fbox{所用到的技术栈：} 
+            \vspace{5pt}
+            
+            Graph model connected component连通图 \quad{} 
+            
+            nlohmann-json 序列化与反序列化 \quad{} 
+            
+            Eigen MatrixLib \quad{} Qt3DRender \quad{} 
+            
+            OpenCascade solving \quad{} OpenCL异构并行计算 \quad{}
+            
+            GoogleTest \quad{} Visitor Pattern设计模式 \quad{}
+            
+            \vspace{20pt}
+            
+            \fbox{主要/关键的算法：}
+            \vspace{5pt}
+            
+            Newton-Raphson迭代法
+            
+            Trust-Region信赖域法\\
+        \end{tabular*}
+    }
+    
+    \projectsubsection{自动驾驶Road Model模块开发}{BMW宝马汽车}
+    
+    \projectdetail{
+        \begin{tabular*}{1\linewidth}{@{}p{0.7\linewidth} @{}p{0.3\linewidth}}
+            \fbox{项目描述与工作职责：}
+            \vspace{5pt}
+            
+            \faCaretRight\quad{}为宝马3系开发符合中国市场要求和道路情况的辅助驾驶软件系统，我所在的团队主要负责Perception感知系统
+            
+            下细分的Road Model道路模型模块。
+            
+            \faCaretRight\quad{}自传感器Lidar, mmRadar, Camera阵列所采集到周围车辆的行使轨迹，使用Kalmann Filter算法拟合
+            
+            标定/检出这些轨迹，利用聚类的方法将所有的轨迹归类为Left/Ego/Right三簇轨迹，从而融合出虚拟的车道，
+            
+            此虚拟车道是相对于真实的车道线所划分的车道而言的。
+            
+            \faCaretRight\quad{}将拟合标定的轨迹簇与Camera拍摄的真实车辆行使的视频在ROS RViz仿真工具中同时回放出来，检查拟合的
+            
+            轨迹是否与真实车辆行使轨迹相符。特别是在弯曲道路或者车辆在大曲率弯道换道，以及道路分岔/汇合的情况下，
+            
+            轨迹拟合的正确性和真实概率的问题，要筛选出明显拟合错误或失真的轨迹。
+            
+            \faCaretRight\quad{}编码与实现：40\%， 测试（单元测试+集成测试 + HIL硬件在环测试 + SIL软件在环测试）：30\%， 
+            
+            设计方案：15\%， 试车场与高速公路实验：15\%
+            
+            \faCaretRight\quad{}使用Python编写生成各种随机行使Scenarios，对Road Model进行Fuzzy Test, 并记录测试失败的日志。
+            
+            \faCaretRight\quad{}从大量的实验车采集的数据和宝马车主的车辆采集的数以十万小时计的视频流，汇入数据中心。使用Docker容器
+            
+            集群编排成流水线，针对Road Model软件的每一个功能Feature，进行全场景持久性测试。
+            
+            \faCaretRight\quad{}为ROS编写Publisher/Subscriber topics， 开发EgoVehicle与周围车辆的Robot Nodes，以便在ROS RViz
+            
+            环境中仿真，可视化呈现出来。
+            
+            &
+            
+            \fbox{所用到的技术栈：} 
+            \vspace{5pt}
+            
+            Google Bazel大规模增量构建系统\quad{} 
+            
+            GoogleTest\quad{}
+            
+            ROS RViz仿真环境\quad{} 
+            
+            Fuzzy Test\quad{}
+            
+            Docker容器编排\quad{}
+            
+            \vspace{20pt}
+            \fbox{主要/关键的算法：}
+            \vspace{5pt}
+            
+            Kalmann Filter卡尔曼滤波算法\quad{}
+            
+            Kruskal, Prim最小生成树算法，聚类轨迹簇。\\
+        \end{tabular*}
+    }
+\end{document}

@@ -1,0 +1,46 @@
+% File name		: 简历.tex
+% Description	: 使用LaTeX编写我的简历
+% Author		: 徐赞
+% Date			: Wed.	09 Oct. 2024
+% Copyright(C)	2024	All rights reserved.
+%
+%
+
+
+\documentclass[UTF8]{ctexart}
+
+\input{preamble}
+
+\usepackage{subfiles}
+\begin{document}
+    
+    \columnratio{0.3, 0.7}
+    
+    \AtBeginShipoutFirst{\Header{简\quad{}历}\Footer{}}
+%    \AtBeginShipout{\AtBeginShipoutAddToBox{\Header{简\quad{}历}\Footer{1 / 3}}}
+    
+    \begin{paracol}{2}
+        \subfile{照片}
+        
+        \subfile{编程技能}
+        
+        \subfile{基本信息与语言沟通能力}
+        
+        \switchcolumn
+        
+        \subfile{教育背景}
+        
+        \subfile{工作经历}
+    \end{paracol}
+    
+    \newpage
+    
+    \AtBeginShipoutFirst{\Header{简\quad{}历}\Footer{}}
+    \AtBeginShipout{\AtBeginShipoutAddToBox{\Header{简\quad{}历}\Footer{}}}
+    
+    \subfile{工作经历2}
+    
+    \subfile{项目经验}
+    
+    
+\end{document}

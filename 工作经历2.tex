@@ -1,0 +1,112 @@
+% File name		: 工作经历2.tex
+% Description	: 该脚本放置“工作经历2”这一小的CVSection
+% Author		: 徐赞
+% Date			: Fri.	11 Oct. 2024
+% 
+%
+
+
+\documentclass[./简历]{subfiles}
+
+
+\begin{document}
+%    \cvdetail{
+%        编写基于Tencent HD/SD地图的Lane Fusion \& Path Guidance功能，将地图上的一段一段的Lane segments融合成可合法行使的Path(有向权重图的最短
+%        路径算法)，并引导EgoVehicle沿着这个Path行使，包括上下匝道，与对向车道的车辆会车情形的处理。
+%    }
+
+    \cvdetail{
+        修复Road Model模块的软件缺陷，编写足够的测试用例，在数据中心维护Docker容器集群自动化测试Pipeline。 
+        
+        参加在浙江省德清市的智能网联汽车测试场的实车测试与软件系统功能验证，以及在山东境内的高速公路场景自动驾驶测试。
+    }
+
+    \vspace{10pt}
+    \textcolor{blue!30}{\hrule}
+    
+    \cvsubsection{2020.06 - 2022.03}{高级C++开发工程师}{MicroPort MedBot微创医疗机器人股份有限公司}
+    
+    \cvdetail{
+        开发首台国产腹腔镜手术机器人Toumai laparoscopic surgical robot, 参与开发手术机器人系统软件的四个核心模块如下。该系统采用PLC ST语言
+        (也是一种面向对象编程语言，具有如PLC一样的硬实时特性)和C++混合编程， \quad
+        \begin{tabular}{|l|l|l|l|}
+            \hline
+            LogicControl & MotionControl & RobotKinematics & ForceControl \\
+            \hline
+        \end{tabular}\quad
+        在Beckhoff TwinCAT平台上实现手术机器人从医生台车的双主手臂到手术台车的4条从手臂的实时操控。
+        
+        除开发外，我们跟长海医院、浙医二院的主刀大夫合作,在猪身上和人尸体上做切除胰腺肿瘤、前列腺癌根除手术和子宫肌瘤切除等手术，测试验证手术机器人的
+        临床适用性。Toumai腹腔镜手术机器人2022年1月27日获得首个且唯一的国产手术机器人型检与认证，获批上市正式投入临床使用。
+    }
+
+    \cvdetail{
+        负责独立开发Toumai手术机器人的手术台车子系统软件。采用Qt QML编写出对医生/护士手术友好型的操控机器人的HMI界面，设计实现了一套4层型
+        (UI - 人机交互控制逻辑 - ADS通信 - Motion Control) + 独立Error Manager模块的系统架构。 独创地提出驱动层State Machine与人机交互层
+        State Machine互为镜像的机制，从而达到软硬件实时响应与控制的效果。该子系统采用Qt QML/C++/Windows Driver多语言混合开发。
+    }
+
+    \vspace{10pt}
+    \textcolor{blue!30}{\hrule}
+    
+    \cvsubsection{2016.08 - 2020.05}{软件工程师}{上海安费诺永亿通讯电子}
+    
+    \cvdetail{
+        工作期间主要完成如下一些重要项目：
+        \begin{center}
+            \begin{tabular}{c|p{17cm}}
+                \hline
+                \multirowcell{5}{1} & 使用C\#和C++完全独立开发了一套综合性的电子产品的功能测试和管理的软件套件： 
+                    \href{https://github.com/Frederick-Hsu/AUPS}{AUPS (Augmented Universal Platform \& Sequenzer)}，
+                    建立一套集成化的通用平台，用于管理和执行各种电子产品的自动化功能测试，同时提供二次开发定制能力。 (该软件套件已开源)
+                    
+                    \faCaretRight \quad 采用sequence.xml测试脚本保存和组织产品测试Items，管理自动化流程，提供图形化编辑器给工程师自主编辑和参数设定;
+                    
+                    \faCaretRight \quad 设计出一套统一的自动化测试流程监视图形界面;
+                    
+                    \faCaretRight \quad 可支持同时开启16 sessions进行并行测试。通过Ethernet将多台可编程仪器连接，组成全自动化测试流水线，大幅提高自动化率。\\
+                \hline
+                2 & 编写一整套访问基于VISA标准的测量仪器的类库，覆盖绝大多数Keysight, R\&S, Tektronix等品牌的仪器仪表。\\
+                \hline
+                3 & 设计开发一款NFC data transferring device装置，用于\faApple{} iPhone 8 \& X智能手机的非接触式Firmware Image编程烧录。
+                
+                    并为该装置申请一项专利： 一种超大容量的NFC数据传输装置\\
+                \hline
+                4 & 在AUPS基础上，开发一套集成化的工具软件，为GM的Chevrolet, Cadillac SUV两款车型进行V2X车载通信自动化测试。并赴美国底特律GM技术中心指导全程测试与开发。\\
+                \hline
+            \end{tabular}
+        \end{center}
+    }
+
+    \vspace{10pt}
+    \textcolor{blue!30}{\hrule}
+    
+    \cvsubsection{2012.02 - 2016.06}{高级软件开发与测试工程师}{上海海拉电子}
+    
+    \cvdetail{
+        开发生产自动化测试系统与设备，基于NI LabWindows/CVI (纯ANSI C)的自动化测试软件系统和硬件控制系统的开发，系统集成的工作。
+        
+        开发完成以下几个主要项目：
+        
+            \begin{tabular}{ll}
+                \faCaretRight \quad Peugeot-Citro\"{e}n 汽车遥控钥匙的测试系统 & \faCaretRight \quad VolksWagen的FKS12五钥匙进入系统PKE月Kessy PEPS产品的测试系统 \\
+                \faCaretRight \quad BMW, MINI遥控钥匙产品的自动化测试系统 & \faCaretRight \quad 为Mercedes-Benz与BYD合资的DENZA开发一套电动汽车的绝缘检测模块IMD的测试系统 \\
+            \end{tabular}
+    }
+
+    \cvdetail{
+        开发一套紧凑型集成化的测试仪器设备DCU，以取代NI昂贵的PXI板卡仪器。 基于Renesas V850 uPD70F3376 MCU编写
+        \href{https://github.com/Frederick-Hsu/DCU_MCTBox_Firmware}{DCU\_MCTBox\_Firmware}, 
+        \href{https://github.com/Frederick-Hsu/DCU_MCTBox_API}{DCU\_MCTBox\_API}
+        和 \href{https://github.com/Frederick-Hsu/DCU_MCTBox_Diagnoser}{DCU\_MCTBox\_Diagnoser}工具软件。
+        该DCU测试仪器提供SwitchMatrix, DIO, DigitMeter, DigitVoltageSource,CAN/LIN analyzer等功能，
+        满足汽车电子产品的基本测试需求。该项目完全开源，以期打造开源廉价、标准共享的测试仪器仪表设备。
+    }
+
+    \vspace{10pt}
+    \textcolor{blue!30}{\hrule}
+    
+    \cvsubsection{2009.10 - 2012.02}{测试软件工程师}{上海Foxconn}
+    
+    \cvsubsection{2006.07 - 2009.08}{液晶电视Firmware工程师}{AOC冠捷电子(福州)}
+\end{document}
