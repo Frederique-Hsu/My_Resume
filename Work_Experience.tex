@@ -1,0 +1,90 @@
+% File name     : Work_Experience.tex
+% Description   : It places the "Work_Experience" CVSection in this script
+% Author        : Frederique Hsu
+% Date          : Sun.  13 Oct. 2024
+%
+%
+
+
+\documentclass[./CV]{subfiles}
+
+
+\begin{document}
+    
+    \engcvsection{\faGears{} Experience}
+    
+    \engcvsubsection{Jul. 2023 - May. 2024}
+                    {C++ dev. expert}
+                    {PoissonSoft Shanghai}
+                    
+    \cvdetail{
+        Participated in the development task about the constraint solver engine of domestic 3D CAD industrial design software,
+        which has 2 core engines: Geometry Modeling, Geometric Constraint Solving. The GCS engine is used to efficiently solve the large
+        scale of nonlinear equations, have the constraint conditions satisfied among various geometry elements, when engineer draws/designs
+        with CAD software.
+        
+        I had helped to design a hierarchical, message-passing based, and easy-to-horizontal-scale dynamically software architecture, according
+        to the amount of connected graph components. This engine is programmed in C++17, consisted of such hierarchy layers as below:
+        \begin{center}
+            \begin{tabular}{cl}
+                1 & User API layer \\
+                \hline
+                2 & Geometry element(a.k.a. vertex) - constraint relationship(a.k.a. edge) graph model layer \\
+                \hline
+                3 & Geometric decomposition layer according to connected component \\
+                \hline
+                4 & Layer of converting constraint graph to nonlinear equations \\
+                \hline
+                5 & Layer of jacobianizing nonlinear equations to solve, based on Newton-Raphson iteration method \\
+            \end{tabular}
+        \end{center}
+        Comparing with the benchmark Siemens D-Cubed engine in CAD industry, this engine has offered as rich features as 175+ interfaces, plus the 
+        toolsets to visualize the solving process and assess the effect. In the actual testing, when fully solving such a big nonlinear equations with
+        2M geometry elements and 30K constraints, it just costs less than 5 sec, 87\% of D-Cubed performance. We have created the top performance index
+         of domestic CAD GCS engine. 
+    }
+    
+    \cvdetail{
+        Independently developed a suite of Sketcher visualization tool, by virtue of Qt Widget framework, and the CAD.3DViewer lite, they have 
+        integrated in the PCSC Engine, to validate the functionalities of engine inside our team, meanwhile test the actual solving effect and performance.
+        
+        Additionally, took charge of the automatic CI building and Regression Test Pipeline, push the agile development with the optimized workflow: 
+        GitLab + Jira + ReviewBoard + CTest/CPack/CDash for all team players.
+    }
+    
+    \cvdetail{
+        Applied a patent: A kind of parallel accelerating method, applying the OpenGL hybrid heterogeneous computing on geometry constraint solving system.
+        
+        This patent takes good use of OpenCL parallel heterogeneous computing framework for the 1st time, utilizing such computing resources as GPU. FPGA
+        and DSP to accelerate the super-large-scale Jacobian matrix decomposition for geometry constraint solving system. Applying this patent had dramatically
+        improved the performance, decreasing the complexity of matrix multiplication from Strassen algorithm $O(n^{2.48})$ down to current $O(n^2 + n\log_{2}n)$.
+    }
+    
+    \vspace{10pt}
+    \textcolor{blue!30}{\hrule}
+    \engcvsubsection{Mar. 2022 - Feb. 2023}{C++ developer}{BMW (Shanghai) Autonomous Driving Lab.}
+    
+    \cvdetail{
+        With my team to develop the Road Model module of L2 autonomous driving for BMW 3series, i.e. the experiment car gathering the driving trajectory data
+        over such sensors as Lidar, mmRadar, Camera array, etc., then parse and fusion out the virtual lanes, relative to the physical lanes. They were 
+        submitted to the decision system, finally guide the EgoVehicle to drive along the virtual lanes. Visualize the trajectories, virtual lanes and video 
+        stream on the ROS RViz emulator, to validate and test the Road Model.
+        
+        We have implemented the Road Model using C++ and Python on Ubuntu Linux platform, auto-built the software with Bazel build system, wrote many test 
+        scenarios in GoogleTest framework, orchestrated the Docker container cluster to make the full-scenarios testing for each feature.
+    }
+    
+    \cvdetail{
+        Actually I had participated or took responsible of these sub-modules of Road Model module as below:
+        \begin{center}
+            \begin{tabular}{cl|cl|cl}
+                1 & RoadTrackerModule   & 2 & TrajectoryTrackerModule & 3 & ClusteringModule  \\
+                \hline
+                4 & CentralFusionModule & 5 & LaneFinderModule        & 6 & LaneTrackerModule \\
+            \end{tabular}
+        \end{center}
+        These sub-modules were executed like a pipeline, it is exactly the software architecture we've designed.
+        
+        
+    }
+\end{document}

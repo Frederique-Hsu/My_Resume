@@ -1,0 +1,238 @@
+% File name		: preamble.tex
+% Description	: Collect the LaTeX configuration exclusively for the CV article.
+% Author		: Frederique Hsu	(frederique.hsu@outlook.com)
+% Date			: Wed.	09 Oct. 2024
+% Copyright(C)	2024	All rights reserved.
+%
+%
+
+%================================================================================
+%
+%	Document Definition
+%
+%================================================================================
+
+%================================================================================
+% Package list:
+%
+\usepackage{paracol}
+\usepackage{zhlipsum}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xprintlen}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{fontawesome}
+\usepackage{fontspec}
+\usepackage{makecell}
+\usepackage{lastpage}
+\usepackage{hyperref}
+%
+%================================================================================
+
+%================================================================================
+% 页面布局
+%
+\geometry{top=1cm, bottom=1cm, right=0.5cm, left=0.5cm}
+%================================================================================
+
+
+%================================================================================
+% 颜色定义
+%
+\usepackage{color}
+\definecolor{primarycolor}{RGB}{64, 64, 64}
+\definecolor{secondarycolor}{RGB}{59, 77, 97}
+\definecolor{darkcolor}{RGB}{70, 70, 70}
+\definecolor{lightcolor}{RGB}{245, 245, 245}
+%================================================================================
+
+
+%================================================================================
+% 页眉与页脚设置
+%
+\usepackage{tikzpagenodes}
+\newcommand\Header[1]{
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[secondarycolor]
+        (current page.north west) -- (current page.north east) --
+        ([yshift=50pt]current page.north east|-current page text area.north east) --
+        ([yshift=50pt,xshift=-3cm]current page.north|-current page text area.north) --
+        ([yshift=10pt,xshift=-5cm]current page.north|-current page text area.north) --
+        ([yshift=10pt]current page.north west|-current page text area.north west) -- cycle;
+        
+        \node[font=\sffamily\bfseries\color{white},anchor=west,xshift=0.7cm,yshift=-0.32cm] at (current page.north west)
+        {
+            \fontsize{12}{12}\selectfont {#1}
+        };
+    \end{tikzpicture}
+}
+
+\newcommand\Footer[1]{
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[lightcolor]
+        (current page.south east) -- (current page.south west) --
+        ([yshift=-80pt]current page.south east|-current page text area.south east) --
+        ([yshift=-80pt,xshift=-6cm]current page.south|-current page text area.south) --
+        ([xshift=-2.5cm,yshift=-10pt]current page.south|-current page text area.south) --	
+        ([yshift=-10pt]current page.south east|-current page text area.south east) -- cycle;
+        
+        \node[yshift=0.32cm,xshift=9cm] at (current page.south) 
+        {
+            \fontsize{10}{10}\selectfont \textbf{\thepage{} / \pageref{LastPage}}
+        };
+    \end{tikzpicture}
+}
+%================================================================================
+
+%================================================================================
+% 定义有图标的语句
+%
+\newcommand{\icontext}[2]{
+    \color{blue} #1
+    \hspace{0.5em} \color{darkcolor} #2
+}
+%================================================================================
+
+
+%================================================================================
+% 定义进度条
+%
+\colorlet{color1}{blue!40!white}
+\colorlet{color2}{black!20}
+\newcommand{\progressbar}[2][5.8cm]{
+    \textcolor{color1}{\rule{#1 * \real{#2} /100}{0.5ex}}
+    \textcolor{color2}{\rule{#1 - #1 * \real{#2} / 100}{0.5ex}}
+}
+
+\newcommand{\progressbarmultiargs}[3]{
+    \begin{tabular}{@{}l@{}r@{}}
+        #1 & #2
+        \\[-0.5em] 
+        \multicolumn{2}{@{}c@{}}{\progressbar{#3}}
+    \end{tabular}
+}
+%================================================================================
+
+
+%================================================================================
+% 定义cvsection
+%
+\newcommand{\cvsection}[1]{
+    {\heiti \zihao{-4} #1} \\[-0.6em]
+    \begin{tikzpicture}[line width=2pt, darkcolor]
+        \draw[line cap=round] (0, 1) -- (\linewidth, 1);
+    \end{tikzpicture}
+    \par
+}
+%================================================================================
+
+%================================================================================
+% 定义engcvsection
+%
+\newcommand{\engcvsection}[1]{
+    {\textbf{\large{#1}}} \\[-0.6em]
+    \begin{tikzpicture}[line width=2pt, darkcolor]
+        \draw[line cap=round] (0, 1) -- (\linewidth, 1);
+    \end{tikzpicture}
+    \par
+}
+%================================================================================
+
+%================================================================================
+% 定义cvsubsection
+%
+\newcommand{\cvsubsection}[3]{
+    \begin{tabular*}{1\linewidth}{@{}p{0.22\linewidth}
+                                  @{}p{0.55\linewidth}
+                                  @{}>{\hfill}p{0.23\linewidth}
+                                  @{}}
+        \zihao{-5}{#1} & \zihao{-5}{\textbf{#2}} & \zihao{-5}{#3}
+    \end{tabular*}
+    \vspace{-5pt}
+    \textcolor{blue!30}{\hrule}
+%    \vspace{1pt}
+}
+%================================================================================
+
+%================================================================================
+% 定义engcvsubsection
+%
+\newcommand{\engcvsubsection}[3]{
+    \begin{tabular*}{1\linewidth}{@{}p{0.25\linewidth}
+                                  @{}p{0.50\linewidth}
+                                  @{}>{\hfill}p{0.25\linewidth}
+                                  @{}}
+        \zihao{-5}{#1} & \zihao{-5}{\textbf{#2}} & \zihao{-5}{#3}
+    \end{tabular*}
+    \vspace{-5pt}
+    \textcolor{blue!30}{\hrule}
+    %    \vspace{1pt}
+}
+%================================================================================
+
+%================================================================================
+% 定义projectsubsection
+%
+\newcommand{\projectsubsection}[2]{
+    \begin{tabular*}{1\linewidth}{@{}p{0.8\linewidth}@{}>{\hfill}p{0.2\linewidth}}
+        \texttt{#1} & #2
+    \end{tabular*}
+    \vspace{-10pt}
+    \textcolor{blue!20}{\hrule}
+}
+%================================================================================
+
+
+%================================================================================
+% 定义cvdetail
+%
+\newcommand{\cvdetail}[1]{
+    \begin{tabular*}{1\linewidth}{@{}p{0.02\linewidth} @{}p{0.98\linewidth}}
+        & \raisebox{0.15em}{\textcolor{blue}{\zihao{7} \faCircle}} \zihao{6}{#1} \\
+    \end{tabular*}
+    \par
+}
+%================================================================================
+
+%================================================================================
+% 定义projectdetail
+%
+\newcommand{\projectdetail}[1]{
+    {\zihao{6}{#1}}
+}
+%================================================================================
+
+%================================================================================
+% Code environment package
+%
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    language        = C++,
+    basicstyle      = \ttfamily\zihao{6},          % 设置字体族为打印机等宽字体
+    keywordstyle    = \color{blue},                 % 设置关键字颜色为蓝色
+    stringstyle     = \color{red},                  % 设置字符串颜色为红色
+    commentstyle    = \color{gray},
+    columns         = fixed,
+    tabsize         = 4
+}
+%================================================================================
+
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+%    urlcolor=black,
+    bookmarks=true,
+    bookmarksopen=true,
+    pdfstartview=Fit,
+    pdftitle={简历},
+    pdfauthor={徐赞}
+}

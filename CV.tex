@@ -1,0 +1,46 @@
+% File name		: CV.tex
+% Description	: Write my curriculum vitae in LaTeX format.
+% Author		: Frederique Hsu	(frederique.hsu@outlook.com)
+% Date			: Wed.	09 Oct. 2024
+% Copyright(C)	2024	All rights reserved.
+%
+%
+
+
+\documentclass[UTF8]{ctexart}
+
+\input{preamble}
+
+\usepackage{subfiles}
+\begin{document}
+    
+    \columnratio{0.3, 0.7}
+    
+    \AtBeginShipoutFirst{\Header{Curriculum Vitae}\Footer{}}
+    %    \AtBeginShipout{\AtBeginShipoutAddToBox{\Header{Curriculum Vitae}\Footer{}}}
+    
+    \begin{paracol}{2}
+        \subfile{Photo}
+        
+        \subfile{Programming_Skills}
+        
+        \subfile{Profile}
+        
+        \switchcolumn
+        
+        \subfile{Education_Background}
+        
+        \subfile{Work_Experience}
+    \end{paracol}
+    
+    \newpage
+    
+    \AtBeginShipoutFirst{\Header{Curriculum Vitae}\Footer{}}
+    \AtBeginShipout{\AtBeginShipoutAddToBox{\Header{Curriculum Vitae}\Footer{}}}
+    
+    \subfile{Work_Experience2}
+    
+    \subfile{Projects}
+    
+    
+\end{document}

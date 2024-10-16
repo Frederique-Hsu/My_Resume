@@ -1,0 +1,146 @@
+% File name     : Projects.tex
+% Description   : It places the "Projects" CVSection in this script
+% Author        : Frederique Hsu
+% Date          : Sun.  13 Oct. 2024
+%
+%
+
+
+\documentclass[./CV]{subfiles}
+
+
+\begin{document}
+    
+    \engcvsection{\faPencilSquareO{} Projects}
+    
+    \projectsubsection{PoissonSoft Constraint Solver Engine}{PoissonSoft}
+    
+    \projectdetail{
+        \begin{tabular*}{1\linewidth}{@{}p{0.7\linewidth} @{}p{0.3\linewidth}}
+            \fbox{Proj. description and Responsibility: }
+            \vspace{5pt}
+            
+            \faCaretRight\quad{}Developed the domestic CAD constraint solver engine, compared with the benchmark Siemens D-Cubed.
+            
+            \faCaretRight\quad{}Design and implement some local APIs as below and cloud interfaces {\texttt{PSCSCloudAPI}} in C++17,
+            and the 
+            
+            replaying feature of solving log scripts.
+            
+            \texttt{PSCSApiSolver2DEngine::isLicenseValid}, \texttt{PSCSApiSolver2D::measureDimension}, \texttt{incrementalEvaluate},
+            
+            \texttt{dragging}, \texttt{overConstraintAnalyze} etc.
+            
+            \faCaretRight\quad{}Coding: 55\%, Testing and performance parsing: 15\%, Write Wiki document and design solution: 20\%,
+            
+            Fixing issues: 10\%
+            
+            \faCaretRight\quad{}Develop the visual utility Sketcher and PSCAD.3DViewer (with Qt widgets, Qt3DRender) and framework.cad
+            
+            \faCaretRight\quad{}Studying on contrast the innovative solving algorithms of open-source OpenCascade, compare the difference
+            
+            between OCCT, PSCS Engine and D-Cubed in terms of implementation and solving.
+            
+            \faCaretRight\quad{}Study how to vectorize the large-scale Jacobian matrix, combining with OpenCL heterogeneous parallel 
+            
+            computing, deploy it onto the GPU to improve parallelism.
+            
+            \faCaretRight\quad{}Maintain the CMake scripts, automate the Build/Test/Pack/Deploy workflow, have PSCS engine worked 
+            
+            on Windows/Linux/macOS cross-platform and HuaweiCloud, meanwhile compatible with x86\_64 CPU and 
+            
+            Huawei Kunpeng ARM CPU.
+            
+            & 
+            
+            \fbox{Tech. stack I used: }
+            \vspace{5pt}
+            
+            Graph model connected component\quad{}
+            
+            nlohmann-json serialization \& deserialization\quad{}
+            
+            Eigen MatrixLib\qquad{} Qt3DRender\quad{}
+            
+            OpenCascade solving\quad{}
+            
+            OpenCL heterogeneous parallel computing\quad{}
+            
+            GoogleTest\qquad{} Vistor Pattern\quad{}
+            
+            CMake\quad{}
+            
+            \vspace{20pt}
+            
+            \fbox{Some important algorithms: }
+            \vspace{5pt}
+            
+            Newton-Raphson iteration method\quad{}
+            
+            Trust-Region method\quad{}\\
+        \end{tabular*}
+    }
+
+    \vspace{-5pt}
+    \textcolor{blue!30}{\hrule}
+    \projectsubsection{Autonomous Driving Perception/Road Model module}{BMW}
+    
+    \projectdetail{
+        \begin{tabular*}{1\linewidth}{@{}p{0.7\linewidth} @{}p{0.3\linewidth}}
+            \fbox{Proj. description and Responsibility: }
+            \vspace{5pt}
+            
+            \faCaretRight\quad{}Develop the Road Model module of Perception system of L2 Autonomous Driving for BMW 3series, 
+            
+            to meet the requirement of China market.
+            
+            \faCaretRight\quad{}Parse in-depth the trajectories of surrounding vehicles, which were sensored by Lidar, mmRadar and camera
+            
+            array. Utilizing Kalmann Filter algo. to fit/calibrate/identify those trajectories, then aggregate them into 
+            
+            Left/Ego/Right lane bunches, finally fusion out the virtual lanes, relative to the physical lanes.
+            
+            \faCaretRight\quad{}Playback the fitted trajectories and the real-time video stream on ROS RViz emulator, check whether the
+            
+            fitted trajectories are approximating the genius vehicle's trajectories, especially on the curved road or 
+            
+            lane-changing, in some extreme scenarios of road forks and merging, to filter out the distorted trajectories.
+            
+            \faCaretRight\quad{}Coding: 40\%, Testing(Unit test + Integrated test + HIL + SIL): 30\%, Design the solution: 15\%, 
+            
+            Experiment on testing ground and highway: 15\%
+            
+            \faCaretRight\quad{}Generate the random driving scenarios in Python script, then carry out the Fuzzy Test, log the test failures.
+            
+            \faCaretRight\quad{}Gather the video stream which are collected from experiment cars and BMW vehicles, stored in the data center,
+            
+            orchestrate the Docker containers to testing pipeline, make the extensive testing for each feature and full scenarios.
+            
+            \faCaretRight\quad{}Write the publisher/subscriber topics in the ROS environment, develop the robot nodes for EgoVehicle and
+            
+            surrounding vehicles, Simulate in the ROS RViz and visualize the real effect.
+            
+            & 
+            
+            \fbox{Tech. stack I used: }
+            \vspace{5pt}
+            
+            Google Bazel incremental build system\quad{}
+            
+            GoogleTest\quad{}
+            
+            ROS RViz emulator\quad{}
+            
+            Docker containers orchestrating\quad{}
+            
+            \vspace{20pt}
+            
+            \fbox{Some important algorithms: }
+            \vspace{5pt}
+            
+            Kalmann Filter algorithm\quad{}
+            
+            Kruskal, Prim algorithm to find the min splay tree, aggregate the trajectory bunches.
+        \end{tabular*}
+    }
+\end{document}
