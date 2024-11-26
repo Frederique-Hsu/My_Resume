@@ -10,18 +10,19 @@
 
 
 \begin{document}
+    \vspace{10pt}
     \cvsection{\faGears 工作经历}
     
     \cvsubsection{2023.07 - 2024.05}
-                 {C++开发专家(CAD几何约束求解引擎开发)}
-                 {PoissonSoft泊松软件上海分公司}
+                 {\makecell[l]{C++开发专家\\(CAD工业软件，几何约束求解引擎开发)}}
+                 {\makecell[l]{PoissonSoft泊松软件\\上海分公司}}
                  
     \cvdetail{
         {参与开发国产自主知识产权的三维工业设计CAD软件约束求解引擎PoissonSoft Constraint Solver Engine(两大核心引擎：几何建模，约束求解)。
         约束求解引擎是一套用于CAD作图时使众多几何元素满足繁杂的约束条件而建立起来的超大规模非线性方程组，从而求解该方程组的高效
         超大规模计算引擎。
               
-        我帮助设计实现了一套层次化，基于消息传递的，很容易根据连通图多寡进行横向动态伸缩的软件架构。该引擎完全使用C++17来编写，由如下层次组成：
+        \faCaretRight{}\quad{} 我帮助设计实现了一套层次化，基于消息传递的，很容易根据连通图多寡进行横向动态伸缩的软件架构。该引擎完全使用C++17来编写，由如下层次组成：
         \begin{center}
             \begin{tabular}{cl|cl}
                 1 & User API层 & 4 & 约束图建模转化为非线性方程组层 \\
@@ -40,29 +41,36 @@
         使用Qt Widget框架独立开发一套Sketcher草图绘制可视化工具，和一套CAD.3DViewer Lite版软件系统，集成PSCS Engine，提供给团队内部来验证约束求解引擎的功能，
         测试求解的实际效果和性能表现。
         
-        另外负责约束求解引擎的自动化构建CI和自动化Regression Test Pipeline，推进团队的敏捷开发GitLab + Jira + ReviewBoard + CTest/CPack/CDash流程。
+        \faCaretRight{}\quad{} 另外负责约束求解引擎的自动化构建CI和自动化Regression Test Pipeline，推进团队的敏捷开发GitLab + Jira + ReviewBoard + CTest/CPack/CDash流程。
     }
 
     \cvdetail{
         申请了一件专利： 一种基于OpenCL混合式异构计算应用于几何约束求解系统的并行加速方法。
         
         该专利利用OpenCL并行计算框架，调集GPU/FPGA/DSP专用资源，首次应用于约束求解系统，进行并行加速计算超大规模Jacobian矩阵分解。该加速方法的OpenCL异构并行
-        计算相比于NVIDIA CUDA不局限于GPU厂家和型号，亦可在FPGA或DSP上加速计算。应用了该专利后大幅提高PSCS Engine的求解性能，可将矩阵乘法的复杂度从Strassen算法
+        计算相比于NVIDIA CUDA不局限于GPU厂家和型号，亦可在FPGA或DSP上加速计算。
+        
+        \faCaretRight{}\quad{} 应用了该专利后大幅提高PSCS Engine的求解性能，可将矩阵乘法的复杂度从Strassen算法
         的$O(n^{2.48})$降低到$O(n^2 + n\log_{2}{n})$.
     }
 
     \vspace{10pt}
     \textcolor{blue!30}{\hrule}
     
-    \cvsubsection{2022.03 - 2023.02}{C++开发工程师}{BMW宝马汽车(上海)自动驾驶实验室}
+    \cvsubsection{2022.03 - 2023.02}
+                 {\makecell[l]{C++开发工程师\\(自动驾驶，嵌入式软件系统)}}
+                 {\makecell[l]{BMW宝马汽车(上海)\\自动驾驶实验室}}
     
     \cvdetail{
         与团队一起开发L2级自动驾驶中的Perception系统下的Road Model模块， 即根据实验车的Lidar, mmRadar, Camera array等传感器采集到的周围车辆的行使轨迹数据，分析融合
-        出来虚拟(相对于实际车道线的)车道，提交给后面的决策系统，进而引导EgoVehicle沿着该虚拟车道行使。在ROS RViz上回放周围车辆的视频与行使轨迹、融合出的虚拟车道，
-        可视化呈现与测试验证Road Model模块。
+        出来虚拟(相对于实际车道线的)车道，提交给后面的决策系统，进而引导EgoVehicle沿着该虚拟车道行使。
         
-        我们完全在Ubuntu Linux上使用C++与Python混合编写Road Model模块，用Bazel进行构建，使用GoogleTest framework编写Test scenarios，系统集成测试采用
+        \faCaretRight{}\quad{} 在ROS RViz上回放周围车辆的视频与行使轨迹、融合出的虚拟车道，可视化呈现与测试验证Road Model模块。
+        
+        \faCaretRight{}\quad{} 我们完全在Ubuntu Linux上使用C++与Python混合编写Road Model模块，用Bazel进行构建，使用GoogleTest framework编写Test scenarios，系统集成测试采用
         Docker集群编排成容器Pipeline，针对每个功能与特性进行全场景持久测试。
+        
+        \faCaretRight{}\quad{} 测试完成后Firmware烧写到域控制器，进行HIL, SIL测试和人车在环试验。
     }
 
     \cvdetail{
@@ -78,8 +86,9 @@
         
         \faCaretRight\quad RoadTracker计算出道路的(弯曲)形状和边界。
         
-        \faCaretRight\quad TrajectoryTracker根据采集到的周围车辆在每一个时刻相对EgoVehicle的坐标位置、行使方向与状态，使用Kalmann Filter算法计算出每辆车的行使轨迹,
-           存储并每时刻更新。
+        \faCaretRight\quad TrajectoryTracker根据采集到的周围车辆在每一个时刻相对EgoVehicle的坐标位置、行使方向与状态，
+        
+        \quad{} 使用Kalmann Filter算法计算出每辆车的行使轨迹,存储并每时刻更新。
         
         \faCaretRight\quad Clustering采用Kruskal和Prim算法将所有的行使轨迹归类为Left/Ego/Right三簇轨迹集合。
         
@@ -88,8 +97,4 @@
         \faCaretRight\quad LaneFinder与LaneTracker则从轨迹簇中提取稳定的车道，并追踪与实时更新这些车道。 
     }
     
-    \cvdetail{
-        编写基于Tencent HD/SD地图的Lane Fusion \& Path Guidance功能，将地图上的一段一段的Lane segments融合成可合法行使的Path(有向权重图的最短
-        路径算法)，并引导EgoVehicle沿着这个Path行使，包括上下匝道，与对向车道的车辆会车情形的处理。
-    }
 \end{document}

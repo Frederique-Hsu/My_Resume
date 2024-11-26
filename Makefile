@@ -23,3 +23,4 @@ CV.pdf : CV.tex
 cleanall :
 	@latexmk -C -verbose CV.pdf 2> /dev/null
 	@latexmk -C -verbose 简历.pdf 2> /dev/null
+	@rm -frv *.aux *.log *.out *.pdf *.gz *.fls
