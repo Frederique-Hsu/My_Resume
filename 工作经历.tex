@@ -10,7 +10,6 @@
 
 
 \begin{document}
-    \vspace{10pt}
     \cvsection{\faGears 工作经历}
     
     \cvsubsection{2023.07 - 2024.05}
@@ -96,5 +95,17 @@
         
         \faCaretRight\quad LaneFinder与LaneTracker则从轨迹簇中提取稳定的车道，并追踪与实时更新这些车道。 
     }
+    
+    \cvdetail{
+        编写基于Tencent HD/SD地图的Lane Fusion \& Path Guidance功能，将地图上的一段一段的Lane segments融合成可合法行使的Path(有向权重图的最短
+        路径算法)，并引导EgoVehicle沿着这个Path行使，包括上下匝道，与对向车道的车辆会车情形的处理。
+    }
+    
+    \cvdetail{
+        修复Road Model模块的软件缺陷，编写足够的测试用例，在数据中心维护Docker容器集群自动化测试Pipeline。 
+        
+        参加在浙江省德清市的智能网联汽车测试场的实车测试与软件系统功能验证，以及在山东境内的高速公路场景自动驾驶测试。
+    }
+    
     
 \end{document}

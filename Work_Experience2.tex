@@ -10,31 +10,14 @@
 
 
 \begin{document}
-    \cvdetail{
-        Actually I had participated or took responsible of these sub-modules of Road Model module as below:
-        \begin{center}
-            \begin{tabular}{cl|cl|cl}
-                1 & RoadTrackerModule   & 2 & TrajectoryTrackerModule & 3 & ClusteringModule  \\
-                \hline
-                4 & CentralFusionModule & 5 & LaneFinderModule        & 6 & LaneTrackerModule \\
-            \end{tabular}
-        \end{center}    
+    \zihao{6}{
+    \begin{tabular}{l}
+        \faCaretRight\quad{}\underline{CenterFusionModule} is responsible to fusion out the Ego lane, which will be used to guide the EgoVehicle.\\
         
-        These sub-modules were executed like a pipeline, it is exactly the software architecture we've designed.
-        
-        \begin{tabular}{l}
-            \faCaretRight\quad{}\underline{RoadTrackerModule} computes out the curved shape and boundary of road.\\
-            
-            \makecell[l]{\faCaretRight\quad{}\underline{TrajectoryTrackerModule} calcuates the movement trajectory of each vehicle by using the Kalmann Filter algorithm, according to the position, \\
-            \quad{} direction and status of surrounding vehicles, which are relative to EgoVehicle, at every time slot. What's more, save these trajectories and update them.}\\
-            
-            \faCaretRight\quad{}\underline{ClusteringModule} adopts the Kruskal/Prim algorithms to classify the trajectories and aggregate into Left/Ego/Right 3 bunches.\\
-            
-            \faCaretRight\quad{}\underline{CenterFusionModule} is responsible to fusion out the Ego lane, which will be used to guide the EgoVehicle.\\
-            
-            \faCaretRight\quad{}\underline{LaneFinderModule} and \underline{LanTrackerModule} then extracts the stable lanes from the trajectory bunches, and track/update the lanes in real-time. \\
-        \end{tabular}
+        \makecell[l]{\faCaretRight\quad{}\underline{LaneFinderModule} and \underline{LanTrackerModule} then extracts the stable lanes from the trajectory bunches, and track/update the lanes in real-time.} \\
+    \end{tabular}
     }
+    \vspace{5pt}
 
     \cvdetail{
         Implement the Lane Fusion \& Path Guidance feature based on Tencent SD/HD map, splice the lane segments on the map together to form the legal
@@ -52,8 +35,8 @@
     \textcolor{blue!30}{\hrule}
     \engcvsubsection{Jun. 2020 - Mar. 2022}
                     {\makecell[l]{Senior C++ development engineer\\(Surgical robot controlling software)}}
-                    {\makecell[r]{MicroPort MedBot\\Surgical Robot}}
-    
+                    {MicroPort MedBot Surgical Robot}
+    \vspace{5pt}
     \cvdetail{
         Developed the 1st domestic laparoscopic surgical robot: Toumai.  I took part in the development of 4 core modules as below:
         This system adopts the PLC ST(another kind of OOP language, but it features the hardware real-time as PLC) \qquad{}

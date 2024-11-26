@@ -10,7 +10,6 @@
 
 
 \begin{document}
-    \vspace{10pt}
     \engcvsection{\faGears{} Experience}
     
     \engcvsubsection{Jul. 2023 - May. 2024}
@@ -78,6 +77,31 @@
         scenarios in GoogleTest framework, orchestrated the Docker container cluster to make the full-scenarios testing for each feature.
         
         \faCaretRight{}\quad{} After these test items, the firmware was programmed into domain controller, and executed the HIL, SIL testing, finally driver/vehicle-in-loop experiment.
+    }
+    
+    \cvdetail{
+        Actually I had participated or took responsible of these sub-modules of Road Model module as below:
+        
+        \begin{center}
+            \begin{tabular}{cl|cl|cl}
+                1 & RoadTrackerModule   & 2 & TrajectoryTrackerModule & 3 & ClusteringModule  \\
+                \hline
+                4 & CentralFusionModule & 5 & LaneFinderModule        & 6 & LaneTrackerModule \\
+            \end{tabular}
+        \end{center}    
+        
+        These sub-modules were executed like a pipeline, it is exactly the software architecture we've designed.
+        
+        \begin{tabular}{l}
+            \faCaretRight\quad{}\underline{RoadTrackerModule} computes out the curved shape and boundary of road.\\
+            
+            \makecell[l]{\faCaretRight\quad{}\underline{TrajectoryTrackerModule} calcuates the movement trajectory of each vehicle by using the Kalmann Filter 
+                \\\quad{} algorithm, according to the position, direction and status of surrounding vehicles, which are relative to 
+                \\\quad{} EgoVehicle, at every time slot. What's more, save these trajectories and update them.}\\
+            
+            \makecell[l]{\faCaretRight\quad{}\underline{ClusteringModule} adopts the Kruskal/Prim algorithms to classify the trajectories and aggregate 
+                \\\quad{} into Left/Ego/Right 3 bunches.}\\
+        \end{tabular}
     }
     
 \end{document}
